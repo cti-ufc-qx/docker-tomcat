@@ -1,5 +1,12 @@
 FROM java:8-jre
 
+RUN apt-get install -y bsd-mailx mime-support  mutt procmail exim
+
+RUN locale-gen en_US.UTF-8 pt_BR.UTF-8
+ENV LANG en_US.UTF-8 pt_BR.UTF-8
+ENV LANG en_US.UTF-8 pt_BR.UTF-8
+ENV LANG en_US.UTF-8 pt_BR.UTF-8
+
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
@@ -25,8 +32,8 @@ RUN set -ex \
 	done
 
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.0.32
-ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
+ENV TOMCAT_VERSION 8.0.27
+ENV TOMCAT_TGZ_URL https://archive.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 RUN set -x \
 	&& curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
