@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-RUN apt-get update && apt-get install -y bsd-mailx mime-support  mutt procmail exim
+RUN apt-get update && apt-get install -y bsd-mailx mime-support  mutt procmail exim4
 
 RUN locale-gen en_US.UTF-8 pt_BR.UTF-8
 ENV LANG en_US.UTF-8 pt_BR.UTF-8
